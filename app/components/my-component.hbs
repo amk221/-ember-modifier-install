@@ -1,0 +1,8 @@
+{{yield
+  (hash myModifier1=this.myModifier1 myValue=this.myValue)
+  this.myModifier2
+}}
+
+<button type='button' {{on 'click' this.updateMyValue}}>
+  Update my value
+</button>

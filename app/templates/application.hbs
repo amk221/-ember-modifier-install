@@ -1,7 +1,11 @@
-{{page-title "Example"}}
+<MyComponent as |api|>
+  <div {{api.myModifier1}}>
+    {{api.myValue}}
+  </div>
+</MyComponent>
 
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<MyComponent as |api myModifier2|>
+  <div {{myModifier2}}>
+    {{api.myValue}}
+  </div>
+</MyComponent>
