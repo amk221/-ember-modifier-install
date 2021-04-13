@@ -1,3 +1,16 @@
+<p>
+  Click the update buttons,
+  notice that
+  <code>
+    teardown
+  </code>
+  is
+  <strong>
+    not called
+  </strong>
+  before install.
+</p>
+
 <MyComponent as |api|>
   <div {{api.myModifier1}}>
     {{api.myValue}}
