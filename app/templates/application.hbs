@@ -1,30 +1,50 @@
-<p>
-  Click the update buttons,
-  notice that
-  <code>
-    teardown
-  </code>
-  is
-  <strong>
-    not called
-  </strong>
-  before install
-</p>
+{{#if this.showComponents}}
+  <MyComponent as |api|>
+    local modifier yielded in a hash
+    <div {{api.myModifier}}>
+      {{api.myValue}}
+    </div>
+  </MyComponent>
 
-<MyComponent as |api|>
-  <div {{api.myModifier}}>
-    {{api.myValue}}
-  </div>
-</MyComponent>
+  <MyComponent as |api|>
+    local modifier yielded in a hash with an argument that updates
+    <div {{api.myModifier api.myValue}}>
+      {{api.myValue}}
+    </div>
+  </MyComponent>
 
-<MyComponent as |api|>
-  <div {{api.myModifier api.myValue}}>
-    {{api.myValue}}
-  </div>
-</MyComponent>
+  <MyComponent as |api myModifier|>
+    local modifier yielded as a param
+    <div {{myModifier}}>
+      {{api.myValue}}
+    </div>
+  </MyComponent>
 
-<MyComponent as |api|>
-  <div {{api.myModifier}}>
-    {{api.myValue}}
-  </div>
-</MyComponent>
+  <MyComponent as |api myModifier|>
+    local modifier yielded as a param with an argument that updates
+    <div {{myModifier api.myValue}}>
+      {{api.myValue}}
+    </div>
+  </MyComponent>
+
+  <MyComponent as |api|>
+    global modifier
+    <div {{my-modifier}}>
+      {{api.myValue}}
+    </div>
+  </MyComponent>
+
+  <MyComponent as |api|>
+    global modifier with an argument that updates
+    <div {{my-modifier api.myValue}}>
+      {{api.myValue}}
+    </div>
+  </MyComponent>
+{{/if}}
+
+<br />
+<br />
+
+<button type='button' {{on 'click' this.hideComponents}}>
+  Destroy components
+</button>
