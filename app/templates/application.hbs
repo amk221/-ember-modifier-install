@@ -8,9 +8,7 @@
   <strong>
     not called
   </strong>
-  before install,
-  when the modifier is yielded as part of a hash
-  with a tracked property
+  before install
 </p>
 
 <MyComponent as |api|>
@@ -20,7 +18,7 @@
 </MyComponent>
 
 <MyComponent as |api myModifier2|>
-  <div {{myModifier2}}>
+  <div {{myModifier2 api.myValue}}>
     {{api.myValue}}
   </div>
 </MyComponent>
