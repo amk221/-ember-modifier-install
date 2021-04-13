@@ -12,13 +12,19 @@
 </p>
 
 <MyComponent as |api|>
-  <div {{api.myModifier1}}>
+  <div {{api.myModifier}}>
     {{api.myValue}}
   </div>
 </MyComponent>
 
-<MyComponent as |api myModifier2|>
-  <div {{myModifier2 api.myValue}}>
+<MyComponent as |api|>
+  <div {{api.myModifier api.myValue}}>
+    {{api.myValue}}
+  </div>
+</MyComponent>
+
+<MyComponent as |api|>
+  <div {{api.myModifier}}>
     {{api.myValue}}
   </div>
 </MyComponent>
